@@ -53,7 +53,7 @@ namespace Valuta_beräknare
                 }
                 if (comboBox2.SelectedIndex == 4)
                 {
-                    double sek = 1 * Convert.ToDouble(textBox7.Text);
+                    double sek = Convert.ToDouble(textBox7.Text);
                     textBox2.Text = (Convert.ToDouble(textBox1.Text) * (sek * 11.08)).ToString();
                 }
             }
@@ -77,7 +77,7 @@ namespace Valuta_beräknare
                 }
                 if (comboBox2.SelectedIndex == 4)
                 {
-                    double sek = 1 * Convert.ToDouble(textBox7.Text);
+                    double sek = Convert.ToDouble(textBox7.Text);
                     textBox2.Text = (Convert.ToDouble(textBox1.Text) * (sek * 9.44)).ToString();
                 }
             }
@@ -101,7 +101,7 @@ namespace Valuta_beräknare
                 }
                 if (comboBox2.SelectedIndex == 4)
                 {
-                    double sek = 1 * Convert.ToDouble(textBox7.Text);
+                    double sek = Convert.ToDouble(textBox7.Text);
                     textBox2.Text = (Convert.ToDouble(textBox1.Text) * (sek * 12.76)).ToString();
                 }
             }
@@ -113,18 +113,18 @@ namespace Valuta_beräknare
                 }
                 if (comboBox2.SelectedIndex == 1)
                 {
-                    double sek = Convert.ToDouble(textBox1.Text) * Convert.ToDouble(textBox7.Text);
-                    textBox2.Text = (sek * 0.09).ToString();
+                    double sek = Convert.ToDouble(textBox7.Text);
+                    textBox2.Text = (Convert.ToDouble(textBox1.Text) * (sek * 0.09)).ToString();
                 }
                 if (comboBox2.SelectedIndex == 2)
                 {
-                    double sek = Convert.ToDouble(textBox1.Text) * Convert.ToDouble(textBox7.Text);
-                    textBox2.Text = (sek * 0.11).ToString();
+                    double sek = Convert.ToDouble(textBox7.Text);
+                    textBox2.Text = (Convert.ToDouble(textBox1.Text) * (sek * 0.11)).ToString();
                 }
                 if (comboBox2.SelectedIndex == 3)
                 {
-                    double sek = Convert.ToDouble(textBox1.Text) * Convert.ToDouble(textBox7.Text);
-                    textBox2.Text = (sek * 0.078).ToString();
+                    double sek = Convert.ToDouble(textBox7.Text);
+                    textBox2.Text = (Convert.ToDouble(textBox1.Text) * (sek * 0.078)).ToString();
                 }
                 if (comboBox2.SelectedIndex == 4)
                 {
@@ -150,7 +150,11 @@ namespace Valuta_beräknare
                 }
                 if (comboBox1.SelectedIndex == 3)
                 {
-                    textBox1.Text = (Convert.ToDouble(textBox2.Text) * 12.76).ToString();
+                    textBox1.Text = (Convert.ToDouble(textBox2.Text) / 12.76).ToString();
+                }
+                if (comboBox1.SelectedIndex == 4)
+                {
+                    textBox1.Text = (Convert.ToDouble(textBox2.Text) / Convert.ToDouble(textBox7.Text)).ToString();
                 }
             }
             if (comboBox2.SelectedIndex == 1)
@@ -171,6 +175,11 @@ namespace Valuta_beräknare
                 {
                     textBox1.Text = (Convert.ToDouble(textBox2.Text) / 1.15).ToString();
                 }
+                if (comboBox2.SelectedIndex == 4)
+                {
+                    double sek = Convert.ToDouble(textBox7.Text);
+                    textBox2.Text = (Convert.ToDouble(textBox1.Text) * (sek * 11.08)).ToString();
+                }
             }
             if (comboBox2.SelectedIndex == 2)
             {
@@ -189,6 +198,11 @@ namespace Valuta_beräknare
                 if (comboBox1.SelectedIndex == 3)
                 {
                     textBox1.Text = (Convert.ToDouble(textBox2.Text) / 1.35).ToString();
+                }
+                if (comboBox1.SelectedIndex == 4)
+                {
+                    double sek = Convert.ToDouble(textBox7.Text);
+                    textBox1.Text = (Convert.ToDouble(textBox2.Text) * (sek * 9.44)).ToString();
                 }
             }
             if (comboBox2.SelectedIndex == 3)
@@ -209,12 +223,37 @@ namespace Valuta_beräknare
                 {
                     textBox1.Text = textBox2.Text;
                 }
+                if (comboBox2.SelectedIndex == 4)
+                {
+                    double sek = Convert.ToDouble(textBox7.Text);
+                    textBox2.Text = (Convert.ToDouble(textBox1.Text) * (sek * 12.76)).ToString();
+                }
             }
             if (comboBox2.SelectedIndex == 4)
             {
                 if (comboBox1.SelectedIndex == 0)
                 {
-                    textBox2.Text = (Convert.ToDouble(textBox1.Text) * Convert.ToDouble(textBox7.Text)).ToString();
+                    double sek = Convert.ToDouble(textBox7.Text);
+                    textBox1.Text = (Convert.ToDouble(textBox2.Text) * sek).ToString();
+                }
+                if (comboBox1.SelectedIndex == 1)
+                {
+                    double sek = Convert.ToDouble(textBox7.Text);
+                    textBox1.Text = (Convert.ToDouble(textBox2.Text) * (sek * 0.09)).ToString();
+                }
+                if (comboBox1.SelectedIndex == 2)
+                {
+                    double sek = Convert.ToDouble(textBox7.Text);
+                    textBox1.Text = (Convert.ToDouble(textBox2.Text) * (sek * 0.11)).ToString();
+                }
+                if (comboBox1.SelectedIndex == 3)
+                {
+                    double sek = Convert.ToDouble(textBox7.Text);
+                    textBox1.Text = (Convert.ToDouble(textBox2.Text) * (sek * 0.078)).ToString();
+                }
+                if (comboBox1.SelectedIndex == 4)
+                {
+                    textBox1.Text = textBox2.Text;
                 }
             }
         }
@@ -224,19 +263,6 @@ namespace Valuta_beräknare
             textBox2.Text = "";
         }
 
-        // Custom
-        private void buttonVtHSp_Click(object sender, EventArgs e)
-        {
-            textBox4.Text = (Convert.ToDouble(textBox3.Text) * Convert.ToDouble(textBox5.Text)).ToString();
-        }
-        private void buttonHtVSp_Click(object sender, EventArgs e)
-        {
-            textBox3.Text = (Convert.ToDouble(textBox4.Text) / Convert.ToDouble(textBox5.Text)).ToString();
-        }
-        private void ButtonClSp_Click(object sender, EventArgs e)
-        {
-            textBox3.Text = "";
-            textBox4.Text = "";
-        }
+
     }
 }
